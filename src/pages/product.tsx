@@ -1,5 +1,5 @@
 import React from 'react'
-import Page from "../components/_layout/Page/Page";
+import Page from "../components/_shared/Page/Page";
 
 const ProductPage = () => {
     return (

@@ -1,4 +1,4 @@
-import Page from "../components/_layout/Page/Page";
+import Page from "../components/_shared/Page/Page";
 
 const CartPage = () => {
   return (

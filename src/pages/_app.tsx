@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app';
 
-import '../global.scss';
+import '../_sass/global.scss';
 
 const QogitaApp = ({ Component, pageProps }: AppProps): JSX.Element => (
   <Component {...pageProps} />
