@@ -1,0 +1,24 @@
+@import './shared.scss';
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background-color: $gray;
+}
+
+html,
+body,
+body > div {
+    height: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: $font;
+}
+
+h2 {
+    font-size: 16px;
+    font-weight: normal;
+}

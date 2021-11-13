@@ -1,0 +1,9 @@
+@import '/src/_sass/shared.scss';
+
+.productsGrid {
+    display: flex;
+    width: 100%;
+    // padding: 0 4px;
+    margin: 0 -4px;
+    // border: thin solid $grayDark;
+}

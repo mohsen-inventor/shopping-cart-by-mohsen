@@ -1,9 +1,11 @@
 import Page from "../components/_shared/Page/Page";
 
+import ProductsGrid from "../components/home/ProductsGrid/ProductsGrid";
+
 const HomePage = () => {
   return (
     <Page>
-      <h1>Products list</h1>
+      <ProductsGrid />
     </Page>
   )
 }
