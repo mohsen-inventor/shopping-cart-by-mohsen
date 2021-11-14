@@ -1,11 +1,10 @@
 import Page from "../components/_shared/Page/Page";
-
-import ProductsGrid from "../components/home/ProductsGrid/ProductsGrid";
+import Home from "../components/home/_Home/Home";
 
 const HomePage = () => {
   return (
     <Page>
-      <ProductsGrid />
+      <Home />
     </Page>
   )
 }

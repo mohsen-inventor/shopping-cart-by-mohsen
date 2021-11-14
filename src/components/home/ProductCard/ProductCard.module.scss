@@ -1,18 +1,26 @@
 @import '/src/_sass/shared.scss';
 
 .productCard {
-    flex: 0 1 25%;
-    padding: 4px;
-    // border: thin solid red;
+    flex: 0 0 20%;
 
+    &,
     .card {
         display: flex;
+    }
+
+    .photo,
+    .title {
+        display: block;
+    }
+
+    .card {
+        width: 100%;
         flex-direction: column;
+        margin: 4px;
         padding: 16px;
         border-radius: 4px;
         background-color: $white;
-        border: thin solid $grayDark;
-        box-shadow: 0px 0px 2px 0px $grayDark;
+        border: thin solid darken($grayShade, 5);
     }
 
     .photo {
@@ -31,10 +39,26 @@
     }
     .title {
     }
-    .rating {
-    }
     .price {
+        display: flex;
+        align-items: center;
+
+        .label {
+            font-size: 12px;
+            text-transform: uppercase;
+            color: $gray;
+        }
+        .value {
+            color: $pink;
+            font-weight: bold;
+            font-size: 18px;
+            padding-left: 8px;
+        }
     }
     .action {
+        padding-top: 16px;
+    }
+    .cardFooter {
+        margin-top: auto;
     }
 }

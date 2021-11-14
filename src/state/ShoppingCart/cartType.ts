@@ -1,5 +1,4 @@
 import { Product } from '../../types';
-import { GetProductsSuccessAction } from './cartType';
 
 // Cart state
 export interface CartState {

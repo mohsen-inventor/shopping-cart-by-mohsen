@@ -8,7 +8,6 @@ interface Props {
 const PageHeader = (props: Props) => {
     return (
         <div>
-            Page header
             <TopNav />
         </div>
     )

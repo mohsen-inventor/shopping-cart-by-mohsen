@@ -1,0 +1,52 @@
+@import '/src/_sass/shared';
+
+.btnWrap {
+    display: flex;
+}
+
+// Default: blue
+.btn {
+    min-width: 120px;
+    font-size: 14px;
+    text-align: center;
+    color: $white;
+    background-color: $blue;
+
+    &,
+    & > a,
+    & > button {
+        width: 100%;
+        min-height: 44px;
+        text-decoration: none;
+        display: block;
+        position: relative;
+        text-transform: uppercase;
+        border-radius: 3px;
+        overflow: hidden;
+    }
+
+    // Base style
+    & > a,
+    & > button {
+        text-decoration: none;
+        line-height: 1.4em;
+        padding: 8px 32px;
+        letter-spacing: 0.4px;
+        color: inherit;
+        cursor: pointer;
+        border: none;
+        background: transparent;
+        z-index: 1;
+    }
+
+    /* Hover state
+    -----------------------------------*/
+    .hoverState {
+        @include absoluteFullSpace;
+        display: block;
+        border-radius: 3px;
+        left: 101%;
+        background-color: darken($blue, 4);
+        z-index: 0;
+    }
+}
