@@ -1,4 +1,5 @@
 import { Product } from '../../types';
+import { GetProductsSuccessAction } from './cartType';
 
 // Cart state
 export interface CartState {
@@ -16,7 +17,9 @@ export interface CartItem extends Product {
 
 // Actions types
 export enum CartActionType {
-    GetProducts = 'getProducts',
+    GetProductsStart = 'getProducts',
+    GetProductsSuccess = 'getProductsSuccess',
+    GetProductsFail = 'getProductsFail',
     AddToCart = 'addToCart',
     RemoveFromCart = 'removeFromCart',
     UpdateQuantity = 'updateQuantity',
@@ -26,8 +29,22 @@ export enum CartActionType {
 }
 
 // Actions interfaces
-export interface GetProductsAction {
-    type: CartActionType.GetProducts;
+export interface GetProductsStartAction {
+    type: CartActionType.GetProductsStart;
+}
+
+export interface GetProductsSuccessAction {
+    type: CartActionType.GetProductsSuccess;
+    payload: {
+        products: Product[];
+    };
+}
+
+export interface GetProductsFailAction {
+    type: CartActionType.GetProductsFail;
+    payload: {
+        error: string;
+    };
 }
 
 export interface AddToCartAction {
@@ -74,7 +91,9 @@ export interface DisplayProductAction {
 }
 
 export type CartAction =
-    | GetProductsAction
+    | GetProductsStartAction
+    | GetProductsSuccessAction
+    | GetProductsFailAction
     | AddToCartAction
     | RemoveFromCartAction
     | UpdateQuantityAction

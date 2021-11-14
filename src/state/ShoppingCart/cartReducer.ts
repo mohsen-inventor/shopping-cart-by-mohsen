@@ -11,21 +11,28 @@ const initialState: CartState = {
 
 const cartReducer = (state: CartState = initialState, action: CartAction) => {
     switch (action.type) {
+        case CartActionType.GetProductsStart:
+            return { ...state };
+        case CartActionType.GetProductsSuccess:
+            return {
+                ...state,
+                products: action.payload.products,
+            };
+        case CartActionType.GetProductsFail:
+            return { ...state };
         case CartActionType.AddToCart:
-            // add to cart[]
-            return {};
+            return { ...state };
         case CartActionType.RemoveFromCart:
-            // remove selected item from cart[]
-            return {};
+            return { ...state };
         case CartActionType.UpdateQuantity:
-            // update the selected product quantity in the cart[]
-            return {};
+            // update cart item quantity
+            return { ...state };
         case CartActionType.UpdateCartCount:
-            // update the cart count (total items count)
-            return {};
+            // update cart total items count
+            return { ...state };
         case CartActionType.DisplayProduct:
-            // set the selected product for product details page
-            return {};
+            // select a single product to display in product details page
+            return { ...state };
         default:
             return state;
     }

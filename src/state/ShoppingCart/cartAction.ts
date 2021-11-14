@@ -2,7 +2,9 @@ import { Product } from '../../types';
 
 import {
     CartActionType,
-    GetProductsAction,
+    GetProductsStartAction,
+    GetProductsSuccessAction,
+    GetProductsFailAction,
     AddToCartAction,
     RemoveFromCartAction,
     UpdateQuantityAction,
@@ -11,9 +13,27 @@ import {
     DisplayProductAction,
 } from './cartType';
 
-const getProducts = (): GetProductsAction => {
+const getProductsStart = (): GetProductsStartAction => {
     return {
-        type: CartActionType.GetProducts,
+        type: CartActionType.GetProductsStart,
+    };
+};
+
+const getProductsSuccess = (products: Product[]): GetProductsSuccessAction => {
+    return {
+        type: CartActionType.GetProductsSuccess,
+        payload: {
+            products: products,
+        },
+    };
+};
+
+const getProductsFail = (error: string): GetProductsFailAction => {
+    return {
+        type: CartActionType.GetProductsFail,
+        payload: {
+            error: error,
+        },
     };
 };
 
@@ -78,7 +98,9 @@ const displayProduct = (productDetails: Product): DisplayProductAction => {
 };
 
 export {
-    getProducts,
+    getProductsStart,
+    getProductsSuccess,
+    getProductsFail,
     addToCart,
     removeFromCart,
     updateQuantity,
