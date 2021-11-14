@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import Link from 'next/link';
 import { Product } from '../../../types';
 
 // CSS
@@ -7,22 +8,38 @@ import Button from './../../_ui/Button/Button';
 
 // Utils
 import { getCurrencySymbol } from './../../../utils/currency';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart } from '../../../state/ShoppingCart/cartAction';
+import { AppState } from '../../../state/store';
 interface Props {
     data: Product;
 }
 
 const ProductCard = ({ data }: Props) => {
+    const cartItems = useSelector<AppState>(state => state.shoppingCart.cartItems);
+    const dispatch = useDispatch();
+
     let currencySymbol = getCurrencySymbol(data.recommendedRetailPriceCurrency);
+
+    useEffect(() => {
+        console.log(cartItems);
+    }, [cartItems]);
 
     return (
         <div className={css.productCard}>
             <div className={css.card}>
-                <div className={css.photo}>
-                    <div className={css.inner}>
-                        <img src={data.imageUrl} alt={data.name} />
-                    </div>
-                </div>
-                <h2 className={css.title}>{data.name}</h2>
+                <Link href="/product">
+                    <a className={css.photo}>
+                        <div className={css.inner}>
+                            <img src={data.imageUrl} alt={data.name} />
+                        </div>
+                    </a>
+                </Link>
+                <h2 className={css.title}>
+                    <Link href="/product">
+                        <a>{data.name}</a>
+                    </Link>
+                </h2>
                 <div className={css.cardFooter}>
                     <div className={css.price}>
                         <span className={css.label}>Price</span>
@@ -30,7 +47,7 @@ const ProductCard = ({ data }: Props) => {
                         </span>
                     </div>
                     <div className={css.action}>
-                        <Button>Add to Cart</Button>
+                        <Button btnClick={() => dispatch(addToCart(data))}>Add to Cart</Button>
                     </div>
                 </div>
 

@@ -24,9 +24,11 @@
     }
 
     .photo {
+        display: block;
         position: relative;
         width: 100%;
         padding-bottom: 100%;
+        cursor: pointer;
 
         .inner {
             @include absoluteFullSpace;
@@ -38,6 +40,12 @@
         }
     }
     .title {
+        a {
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
     .price {
         display: flex;

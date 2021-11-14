@@ -12,7 +12,7 @@ const initialState: CartState = {
 const cartReducer = (state: CartState = initialState, action: CartAction) => {
     switch (action.type) {
         case CartActionType.GetProductsStart:
-            return { ...state };
+            return state;
         case CartActionType.GetProductsSuccess:
             return {
                 ...state,

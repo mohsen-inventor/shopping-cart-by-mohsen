@@ -49,7 +49,7 @@ export interface GetProductsFailAction {
 export interface AddToCartAction {
     type: CartActionType.AddToCart;
     payload: {
-        productID: number;
+        product: Product;
     };
 }
 

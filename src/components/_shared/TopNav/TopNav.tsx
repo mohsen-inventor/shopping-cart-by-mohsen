@@ -1,23 +1,26 @@
 import Link from 'next/link';
+import { AppState } from '../../../state/store';
 
 // CSS
 import css from './TopNav.module.scss';
+import { useSelector } from 'react-redux';
 
-const TopNav = () => (
-  <div className={css.topNav}>
-    <strong>Qogita</strong>
-    <nav>
+const TopNav = () => {
+  const { cartCount } = useSelector<AppState>(state => state.shoppingCart)
+
+  return (
+    <nav className={css.topNav}>
       <Link href="/">
-        <a className="underline">Products List</a>
+        <a>Logo</a>
+      </Link>
+      <Link href="/">
+        <a>Home</a>
       </Link>
       <Link href="/cart">
-        <a className="underline">Your Cart</a>
-      </Link>
-      <Link href="/product">
-        <a className="underline">Product details</a>
+        <a>Your Cart ({cartCount})</a>
       </Link>
     </nav>
-  </div>
-);
+  )
+}
 
 export default TopNav;

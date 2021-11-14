@@ -37,11 +37,11 @@ const getProductsFail = (error: string): GetProductsFailAction => {
     };
 };
 
-const addToCart = (productID: number): AddToCartAction => {
+const addToCart = (product: Product): AddToCartAction => {
     return {
         type: CartActionType.AddToCart,
         payload: {
-            productID: productID,
+            product: product,
         },
     };
 };
