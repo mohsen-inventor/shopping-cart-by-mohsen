@@ -1,0 +1,16 @@
+@import '/src/_sass/shared.scss';
+
+.cartSummary {
+    @include whiteBox;
+
+    .header,
+    .body {
+        padding: 16px;
+    }
+
+    .header {
+        border-bottom: thin solid $grayShade;
+    }
+    .body {
+    }
+}

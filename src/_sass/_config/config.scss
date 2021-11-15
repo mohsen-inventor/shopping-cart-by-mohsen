@@ -3,8 +3,9 @@
 $white: #fff;
 $black: #111827;
 $gray: #999;
+// $gray1: #e5e7eb;
 $grayTint: #f9fafb;
-$grayShade: #f3f4f6;
+$grayShade: #e5e7eb;
 $blue: #546dfe;
 $orange: #f59e0b;
 $pink: #f7598e;
@@ -13,28 +14,3 @@ $green: #3cd4a0;
 /* Typography
 -----------------------------------------*/
 $font: 'Segoe UI', Helvetica, Arial, sans-serif;
-
-/* Helpers
------------------------------------------*/
-@mixin absoluteFullSpace {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-}
-
-@mixin flexCenter {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-@mixin imageFullWidth {
-    width: 100%;
-    height: auto;
-}
-@mixin imageFullHeight {
-    width: auto;
-    height: 100%;
-}

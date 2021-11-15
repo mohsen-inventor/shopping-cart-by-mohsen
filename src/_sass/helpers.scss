@@ -1,0 +1,30 @@
+/* Helpers
+-----------------------------------------*/
+@mixin absoluteFullSpace {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin imageFullWidth {
+    width: 100%;
+    height: auto;
+}
+@mixin imageFullHeight {
+    width: auto;
+    height: 100%;
+}
+
+@mixin whiteBox {
+    border-radius: 4px;
+    background-color: $white;
+    border: thin solid $grayShade;
+}

@@ -1,0 +1,15 @@
+@import '/src/_sass/shared.scss';
+
+.cartList {
+    @include whiteBox;
+
+    .header {
+        padding: 16px;
+        border-bottom: thin solid $grayShade;
+    }
+
+    .body {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}

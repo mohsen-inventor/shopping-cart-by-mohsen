@@ -1,0 +1,15 @@
+@import '/src/_sass/shared.scss';
+
+.cart {
+    display: flex;
+    width: 100%;
+}
+
+.items {
+    flex: 0 0 70%;
+    padding-right: 8px;
+}
+
+.summary {
+    flex: 0 0 30%;
+}
