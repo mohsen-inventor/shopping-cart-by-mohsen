@@ -4,8 +4,32 @@
     @include whiteBox;
 
     .header {
+        display: flex;
         padding: 16px;
+        align-items: center;
         border-bottom: thin solid $grayShade;
+
+        h1 {
+            font-size: 16px;
+            margin-right: 16px;
+            padding-right: 16px;
+            font-weight: normal;
+            border-right: thin solid $grayShade;
+        }
+        div {
+            font-size: 14px;
+        }
+
+        .productCount,
+        .itemCount {
+            display: inline-block;
+            padding-right: 8px;
+            text-transform: capitalize;
+        }
+
+        .itemCount {
+            color: $gray;
+        }
     }
 
     .body {

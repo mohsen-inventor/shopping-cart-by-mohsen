@@ -11,6 +11,33 @@
     .header {
         border-bottom: thin solid $grayShade;
     }
-    .body {
+
+    .priceBreakdown {
+        padding-bottom: 16px;
+    }
+
+    .price {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 0;
+        border-bottom: thin solid $grayShade;
+
+        .label,
+        .value {
+            font-size: 14px;
+        }
+
+        &:last-child {
+            border-bottom: none;
+
+            .label,
+            .value {
+                font-size: 16px;
+            }
+        }
+    }
+
+    .action {
     }
 }

@@ -1,0 +1,52 @@
+@import '/src/_sass/shared.scss';
+
+.cartItem {
+    display: flex;
+    padding: 16px 0;
+    border-bottom: thin solid $grayShade;
+
+    .photo {
+        flex: 0 0 70px;
+        background-color: $grayTint;
+    }
+
+    .details {
+        position: relative;
+        flex: 1 1 auto;
+        padding: 0 60px 0 20px;
+    }
+
+    .title {
+    }
+
+    .shippingNote {
+    }
+
+    .price {
+        position: absolute;
+        top: 0;
+        right: 0;
+        text-align: center;
+
+        .itemPrice,
+        .shippingPrice {
+            display: block;
+        }
+        .shippingPrice {
+            color: $gray;
+        }
+    }
+
+    .action {
+        display: flex;
+
+        .remove {
+        }
+        .quantity {
+        }
+    }
+
+    &:last-child {
+        border-bottom: none;
+    }
+}
