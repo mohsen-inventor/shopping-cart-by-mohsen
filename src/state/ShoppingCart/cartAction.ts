@@ -46,7 +46,7 @@ const addToCart = (product: Product): AddToCartAction => {
     };
 };
 
-const removeFromCart = (productID: number): RemoveFromCartAction => {
+const removeFromCart = (productID: string): RemoveFromCartAction => {
     return {
         type: CartActionType.RemoveFromCart,
         payload: {

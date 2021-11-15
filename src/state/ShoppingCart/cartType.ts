@@ -2,7 +2,7 @@ import { Product } from '../../types';
 
 // Cart state
 export interface CartState {
-    cartItems: CartItem[];
+    cart: CartItem[];
     cartCount: number;
     cartTotalPrice: number;
     products: Product[];
@@ -56,7 +56,7 @@ export interface AddToCartAction {
 export interface RemoveFromCartAction {
     type: CartActionType.RemoveFromCart;
     payload: {
-        productID: number;
+        productID: string;
     };
 }
 
