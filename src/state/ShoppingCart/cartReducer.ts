@@ -1,11 +1,10 @@
-import { CartActionType, CartAction, CartState, CartItem } from './cartType';
-import { Product } from '../../types';
+import { CartActionType, CartAction, CartState } from './cartType';
 
 const initialState: CartState = {
     cart: [],
-    cartCount: 0,
-    cartTotalPrice: 0,
+    cartItemsCount: 0,
     products: [], // all products
+    totalProductsCount: 0,
     productDetails: null, // single product for details page
 };
 
@@ -16,6 +15,7 @@ const cartReducer = (state: CartState = initialState, action: CartAction) => {
         case CartActionType.GetProductsSuccess:
             return {
                 ...state,
+                totalProductsCount: action.payload.totalProductsCount,
                 products: action.payload.products,
             };
         case CartActionType.GetProductsFail:
@@ -41,13 +41,21 @@ const cartReducer = (state: CartState = initialState, action: CartAction) => {
             return {
                 ...state,
                 cart: updatedCart,
+                cartItemsCount: state.cart.reduce((totalItems, cartItem) => {
+                    return totalItems + cartItem.quantity;
+                }, 1),
             };
         case CartActionType.RemoveFromCart:
+            const itemToRemove = state.cart.find(
+                (item) => item.gtin === action.payload.productID
+            );
+
             return {
                 ...state,
-                cart: state.cart.filter((cartItem) => {
-                    cartItem.gtin !== action.payload.productID;
-                }),
+                cart: state.cart.filter(
+                    (cartItem) => cartItem.gtin !== action.payload.productID
+                ),
+                cartItemsCount: state.cartItemsCount - itemToRemove?.quantity,
             };
         case CartActionType.UpdateQuantity:
             // update cart item quantity

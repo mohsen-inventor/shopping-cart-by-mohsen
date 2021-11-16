@@ -6,7 +6,7 @@ import css from './TopNav.module.scss';
 import { useSelector } from 'react-redux';
 
 const TopNav = () => {
-  const { cartCount } = useSelector<AppState>(state => state.shoppingCart)
+  const { cartItemsCount } = useSelector<AppState>(state => state.shoppingCart);
 
   return (
     <nav className={css.topNav}>
@@ -17,7 +17,7 @@ const TopNav = () => {
         <a>Home</a>
       </Link>
       <Link href="/cart">
-        <a>Your Cart ({cartCount})</a>
+        <a>Your Cart ( {cartItemsCount} items )</a>
       </Link>
     </nav>
   )

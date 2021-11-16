@@ -13,17 +13,24 @@ import {
     DisplayProductAction,
 } from './cartType';
 
-const getProductsStart = (): GetProductsStartAction => {
+const getProductsStart = (page: number = 1): GetProductsStartAction => {
     return {
         type: CartActionType.GetProductsStart,
+        payload: {
+            page: page,
+        },
     };
 };
 
-const getProductsSuccess = (products: Product[]): GetProductsSuccessAction => {
+const getProductsSuccess = (
+    products: Product[],
+    totalProductsCount: number
+): GetProductsSuccessAction => {
     return {
         type: CartActionType.GetProductsSuccess,
         payload: {
             products: products,
+            totalProductsCount: totalProductsCount,
         },
     };
 };

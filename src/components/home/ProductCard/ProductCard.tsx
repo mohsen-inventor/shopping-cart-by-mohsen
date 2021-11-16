@@ -1,29 +1,22 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { Product } from '../../../types';
 
-// CSS
 import css from './ProductCard.module.scss';
 import Button from './../../_ui/Button/Button';
 
-// Utils
 import { getCurrencySymbol } from './../../../utils/currency';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addToCart } from '../../../state/ShoppingCart/cartAction';
-import { AppState } from '../../../state/store';
+
 interface Props {
     data: Product;
 }
 
 const ProductCard = ({ data }: Props) => {
-    const cartItems = useSelector<AppState>(state => state.shoppingCart.cartItems);
     const dispatch = useDispatch();
 
     let currencySymbol = getCurrencySymbol(data.recommendedRetailPriceCurrency);
-
-    useEffect(() => {
-        console.log(cartItems);
-    }, [cartItems]);
 
     return (
         <div className={css.productCard}>
@@ -50,7 +43,6 @@ const ProductCard = ({ data }: Props) => {
                         <Button btnClick={() => dispatch(addToCart(data))}>Add to Cart</Button>
                     </div>
                 </div>
-
             </div>
         </div>
     )

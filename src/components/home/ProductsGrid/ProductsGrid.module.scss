@@ -5,3 +5,12 @@
     flex-wrap: wrap;
     width: 100%;
 }
+
+.pager {
+    margin: 16px 0 32px;
+    text-align: center;
+
+    & > div {
+        display: inline-block;
+    }
+}

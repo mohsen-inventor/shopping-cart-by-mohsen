@@ -3,9 +3,9 @@ import { Product } from '../../types';
 // Cart state
 export interface CartState {
     cart: CartItem[];
-    cartCount: number;
-    cartTotalPrice: number;
+    cartItemsCount: number;
     products: Product[];
+    totalProductsCount: number;
     productDetails: Product;
 }
 
@@ -30,12 +30,16 @@ export enum CartActionType {
 // Actions interfaces
 export interface GetProductsStartAction {
     type: CartActionType.GetProductsStart;
+    payload: {
+        page: number;
+    };
 }
 
 export interface GetProductsSuccessAction {
     type: CartActionType.GetProductsSuccess;
     payload: {
         products: Product[];
+        totalProductsCount: number;
     };
 }
 

@@ -1,31 +1,38 @@
 import React from 'react';
+import { CartItem } from '../../../state/ShoppingCart/cartType';
 import css from './CartItem.module.scss';
+import { getCurrencySymbol } from '../../../utils/currency';
+import { useDispatch } from 'react-redux';
+import { removeFromCart } from '../../../state/ShoppingCart/cartAction';
+
+import TextField from '@mui/material/TextField';
 
 interface Props {
-
+    data: CartItem
 }
 
-const CartItem = (props: Props) => {
+const CartItem = ({ data }: Props) => {
+    const dispatch = useDispatch();
+    const currencySymbol = getCurrencySymbol(data.recommendedRetailPriceCurrency);
+
     return (
         <div className={css.cartItem}>
-            <div className={css.photo}>Photo</div>
+            <div className={css.photo}><img src={data.imageUrl} /></div>
             <div className={css.details}>
-                <h2 className={css.title}>Title</h2>
+                <h2 className={css.title}>{data.name}</h2>
                 <p className={css.price}>
-                    <span className={css.itemPrice}>106</span>
-                    <span className={css.shippingPrice}>27</span>
+                    <span className={css.itemPrice}>{currencySymbol} {data.recommendedRetailPrice}</span>
+                    <span className={css.shippingPrice}>{currencySymbol} 27</span>
                 </p>
                 <div className={css.shippingNote}>
-                    <span>8411061865613</span>
-                    <span>Usually ships within 2 days.</span>
+                    <span className={css.gtin}>{data.gtin}</span>
+                    <span className={css.note}>Usually ships within 2 days.</span>
                 </div>
                 <div className={css.action}>
                     <div className={css.remove}>
-                        <a>Remove</a>
+                        <button onClick={() => dispatch(removeFromCart(data.gtin))}>Remove</button>
                     </div>
-                    <div className={css.quantity}>
-                        Quantity
-                    </div>
+                    <div className={css.quantity}>Selected quantity ({data.quantity})</div>
                 </div>
             </div>
         </div>

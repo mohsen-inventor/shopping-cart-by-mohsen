@@ -8,6 +8,10 @@
     .photo {
         flex: 0 0 70px;
         background-color: $grayTint;
+
+        img {
+            max-width: 100%;
+        }
     }
 
     .details {
@@ -16,10 +20,27 @@
         padding: 0 60px 0 20px;
     }
 
-    .title {
+    .title,
+    .shippingNote {
+        padding-bottom: 8px;
+    }
+
+    .shippingNote,
+    .action {
+        &,
+        button {
+            font-size: 12px;
+        }
     }
 
     .shippingNote {
+        .gtin {
+            padding-right: 8px;
+            border-right: thin solid $grayShade;
+        }
+        .note {
+            padding-left: 8px;
+        }
     }
 
     .price {
@@ -39,10 +60,26 @@
 
     .action {
         display: flex;
+        align-items: center;
+        padding-top: 8px;
 
         .remove {
+            padding-right: 16px;
+            border-right: thin solid $grayShade;
+
+            button {
+                border: none;
+                background: none;
+                cursor: pointer;
+                padding: 4px 0;
+
+                &:hover {
+                    color: $red;
+                }
+            }
         }
         .quantity {
+            padding-left: 16px;
         }
     }
 

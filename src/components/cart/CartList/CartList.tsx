@@ -2,26 +2,27 @@ import React from 'react';
 import CartItem from '../CartItem/CartItem';
 
 import css from './CartList.module.scss';
+import { useSelector } from 'react-redux';
+import { AppState } from '../../../state/store';
 
-interface Props {
 
-}
+const CartList = () => {
+    const { cart } = useSelector<AppState>(state => state.shoppingCart);
+    const { cartItemsCount } = useSelector<AppState>(state => state.shoppingCart);
 
-const CartList = (props: Props) => {
     return (
         <div className={css.cartList}>
             <div className={css.header}>
                 <h1>Cart</h1>
                 <div>
-                    <span className={css.productCount}>4 products</span>
-                    <span className={css.itemCount}>(7 items)</span>
+                    <span className={css.productCount}>{cart.length} Products</span>
+                    <span className={css.itemCount}>({cartItemsCount} items in total)</span>
                 </div>
             </div>
             <div className={css.body}>
-                <CartItem />
-                <CartItem />
-                <CartItem />
-                <CartItem />
+                {cart.map(item => (
+                    <CartItem key={item.gtin} data={item} />
+                ))}
             </div>
         </div>
     )

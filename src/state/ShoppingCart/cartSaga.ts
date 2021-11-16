@@ -1,24 +1,20 @@
-import axios from 'axios';
-// import { CallReturnType } from 'redux-saga';
 import { all, call, put, takeLatest } from 'redux-saga/effects';
 
 import { Product } from '../../types';
-import { CartActionType } from './cartType';
-import {
-    getProductsStart,
-    getProductsSuccess,
-    getProductsFail,
-} from './cartAction';
-
-// export const getProducts = () => axios.get<Product[]>('/api/products');
+import { CartActionType, CartAction, GetProductsStartAction } from './cartType';
+import { getProductsSuccess, getProductsFail } from './cartAction';
 
 // Saga worker
-function* fetchProducts() {
+function* fetchProducts(action): CartAction {
     try {
-        const response = yield call(fetch, '/api/products');
+        const response = yield call(
+            fetch,
+            `/api/products?page=${action.payload.page}`
+        );
         const data = yield response.json();
         const products: Product[] = yield data.results;
-        yield put(getProductsSuccess(products));
+        const totalProductsCount: number = yield data.count;
+        yield put(getProductsSuccess(products, totalProductsCount));
     } catch (erorr) {
         yield put(getProductsFail(erorr.message));
     }
